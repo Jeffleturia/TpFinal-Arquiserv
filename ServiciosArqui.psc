@@ -1,7 +1,8 @@
 Algoritmo Servicios
-    Definir opcionPrincipal, opcionServicio, mensaje Como Entero
-    Definir servicioSeleccionado Como Caracter
-    Definir precio Como Real
+	//Optimicé el codigo
+    Definir opcionPrincipal, opcionServicio,cantidadServ Como Entero
+    Definir servicioSeleccionado, mensaje Como Caracter
+    Definir precio, TotalServ Como Real
     
     Escribir "Bienvenido a nuestro sistema de servicios."
     Escribir "Por favor, seleccione un tipo de servicio:"
@@ -16,7 +17,7 @@ Algoritmo Servicios
             Escribir "Ha seleccionado AutoCAD."
             Escribir "¿Qué tipo de plano necesita?"
             Escribir "1. BÁSICO"
-            Escribir "2. STÁNDAR"
+            Escribir "2. ESTÁNDAR"
             Escribir "3. PREMIUM"
             Leer opcionServicio
             Segun opcionServicio Hacer
@@ -28,16 +29,15 @@ Algoritmo Servicios
                     precio <- 60.0
                 De Otro Modo:
                     Escribir "Opción no válida."
-                    
             Fin Segun
             
         2:
             servicioSeleccionado <- "Renders"
             Escribir "Ha seleccionado Renders."
             Escribir "Por favor, elija el pack que desea:"
-            Escribir "1. BÁSICO  :1280x720 px (HD)"
-            Escribir "2. STÁNDAR :1920×1080 px (Full HD)"
-            Escribir "3. PREMIUM :3840×2160 px (Resolución 4K)"
+            Escribir "1. BÁSICO  : 1280x720 px (HD)"
+            Escribir "2. ESTÁNDAR: 1920×1080 px (Full HD)"
+            Escribir "3. PREMIUM : 3840×2160 px (Resolución 4K)"
             Leer opcionServicio
             Segun opcionServicio Hacer
                 1:
@@ -48,7 +48,6 @@ Algoritmo Servicios
                     precio <- 120.0
                 De Otro Modo:
                     Escribir "Opción no válida."
-					
             Fin Segun
             
         3:
@@ -65,21 +64,22 @@ Algoritmo Servicios
                     Escribir "Mail: jeffleturia@gmail.com"
                     Escribir "Ingrese un mensaje"
                     Leer mensaje
-                    Escribir "Mensaje enviado"
+                    Escribir "Mensaje enviado: ", mensaje
                 De Otro Modo:
                     Escribir "Opción no válida."
-					
             Fin Segun
-            
         De Otro Modo:
             Escribir "Opción no válida."
     Fin Segun
-    
-    Si opcionPrincipal <= 3 Entonces
+    //Agregue la calculadora
+    Si opcionPrincipal <= 2 Entonces
         Escribir "El servicio seleccionado es: ", servicioSeleccionado
         Escribir "El precio es: ", precio, " US$"
+        Escribir "Ingrese la cantidad que necesita"
+        Leer cantidadServ
+        TotalServ <- precio * cantidadServ
+		escribir "Te saldría ",TotalServ," US$" 
     Fin Si
     
     Escribir "Gracias por utilizar nuestros servicios."
-    
 Fin Algoritmo
